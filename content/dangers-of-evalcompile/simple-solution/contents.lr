@@ -1,0 +1,9 @@
+name: simple-solution
+---
+body:
+
+### Simple to avoid
+
+* Provide our own locals/globals
+---
+transition: 
