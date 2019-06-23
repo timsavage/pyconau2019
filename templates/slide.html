@@ -1,0 +1,14 @@
+<section>
+  {% if this.children %}
+    {% for child in this.children %}
+
+    {% endfor %}
+  {% else %}
+    {{ this.body }}
+    {% if this.notes %}
+      <aside class="notes">
+        {{ this.notes }}
+      </aside>
+    {% endif %}
+  {% endif %}
+</section>

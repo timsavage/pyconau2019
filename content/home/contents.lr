@@ -1,0 +1,9 @@
+_model: slide
+---
+name: Home
+---
+body: Welcome
+---
+notes: Cover framing of talk
+---
+order: 1

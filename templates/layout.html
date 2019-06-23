@@ -1,49 +1,43 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>PyConAU 2019</title>
+    <title>{% block title %}PyConAU 2019{% endblock %}</title>
 
-		<link rel="stylesheet" href="{{ '/static/css/reset.css'|asseturl }}">
-		<link rel="stylesheet" href="{{ '/static/css/reveal.css'|asseturl }}">
-		<link rel="stylesheet" href="{{ '/static/css/theme/black.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/reset.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/reveal.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/theme/black.css'|asseturl }}">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="{{ '/static/lib/css/monokai.css'|asseturl }}">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="{{ '/static/lib/css/monokai.css'|asseturl }}">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '{{ '/static/css/print/pdf.css'|asseturl }}' : '{{ '/static/css/print/paper.css'|asseturl }}';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>{% block body %}{% endblock %}</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ '/static/css/print/pdf.css'|asseturl }}' : '{{ '/static/css/print/paper.css'|asseturl }}';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">{% block body %}{% endblock %}</div>
 
-		<script src="{{ '/static/js/reveal.js'|asseturl }}"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: '{{ '/static/plugin/markdown/marked.js'|asseturl }}' },
-					{ src: '{{ '/static/plugin/markdown/markdown.js'|asseturl }}' },
-					{ src: '{{ '/static/plugin/notes/notes.js'|asseturl }}', async: true },
-					{ src: '{{ '/static/plugin/highlight/highlight.js'|asseturl }}', async: true }
-				]
-			});
-		</script>
-	</body>
+    <script src="{{ '/static/js/reveal.js'|asseturl }}"></script>
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: '{{ '/static/plugin/markdown/marked.js'|asseturl }}' },
+          { src: '{{ '/static/plugin/markdown/markdown.js'|asseturl }}' },
+          { src: '{{ '/static/plugin/notes/notes.js'|asseturl }}', async: true },
+          { src: '{{ '/static/plugin/highlight/highlight.js'|asseturl }}', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
