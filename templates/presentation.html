@@ -1,10 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
-{% for slide in this.children %}
-  {% with this = slide %}
-    {% include slide.template %}
-  {% endwith %}
-  <section>{{ slide.body }}</section>
+<div class="slides">
+{%- for slide in this.children %}
+  {% with this = slide %}{% include slide._template %}{% endwith %}
 {% endfor %}
+</div>
 {% endblock %}

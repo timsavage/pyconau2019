@@ -1,14 +1,26 @@
+{% macro render_transitions(slide) %}
+{%- if slide.transition and slide.transition_out %}
+ data-transition="{{ slide.transition }}-in {{ slide.transition_out }}-out"
+{% elif slide.transition %}
+ data-transition="{{ slide.transition }}"
+{% elif slide.transition_out %}
+ data-transition="{{ slide.transition_out }}-out"
+{% endif %}{% endmacro %}
+{% macro render_slide(slide) %}
+    <section{{ render_transitions(slide) }}>
+        {{ slide.body }}
+        {% if slide.notes %}
+            <aside class="notes">
+                {{ slide.notes }}
+            </aside>
+        {% endif %}
+    </section>
+{% endmacro %}
+{%- if this.children %}
 <section>
-  {% if this.children %}
-    {% for child in this.children %}
-
-    {% endfor %}
-  {% else %}
-    {{ this.body }}
-    {% if this.notes %}
-      <aside class="notes">
-        {{ this.notes }}
-      </aside>
-    {% endif %}
-  {% endif %}
+    {{ render_slide(this) }}
+    {% for child in this.children %}{{ render_slide(child) }}{% endfor %}
 </section>
+{% else %}
+{{ render_slide(this) }}
+{% endif %}

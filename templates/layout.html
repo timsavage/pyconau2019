@@ -23,19 +23,15 @@
     </script>
   </head>
   <body>
-    <div class="reveal">{% block body %}{% endblock %}</div>
-
-    <script src="{{ '/static/js/reveal.js'|asseturl }}"></script>
+    <div class="reveal">{%- block body %}{% endblock %}</div>
+    <script src="{{ '/static/js/reveal.js'|url }}"></script>
     <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
         dependencies: [
-          { src: '{{ '/static/plugin/markdown/marked.js'|asseturl }}' },
-          { src: '{{ '/static/plugin/markdown/markdown.js'|asseturl }}' },
-          { src: '{{ '/static/plugin/notes/notes.js'|asseturl }}', async: true },
-          { src: '{{ '/static/plugin/highlight/highlight.js'|asseturl }}', async: true }
+          { src: '{{ '/static/plugin/markdown/marked.js'|url }}' },
+          { src: '{{ '/static/plugin/markdown/markdown.js'|url }}' },
+          { src: '{{ '/static/plugin/notes/notes.js'|url }}', async: true },
+          { src: '{{ '/static/plugin/highlight/highlight.js'|url }}', async: true }
         ]
       });
     </script>
