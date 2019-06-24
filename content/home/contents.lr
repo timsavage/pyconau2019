@@ -2,8 +2,20 @@ _model: slide
 ---
 name: Home
 ---
-body: Welcome
+body:
+
+## Safely eval Python Syntax with the AST module
+----
 ---
-notes: Cover framing of talk
+notes:
+
+* Experience
+  - Python for 15 years
+  - Currently, work for Westpac handling sensitive data
+* Talk covers:
+  - The dangers of Eval/Compile
+  - The AST module
+  - How we can use them together to safely parse data
+
 ---
 order: 1

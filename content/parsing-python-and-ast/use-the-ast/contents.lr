@@ -1,0 +1,9 @@
+name: Use the AST
+---
+body:
+
+### Use the AST module
+
+* Is built into the standard library
+* Creates a syntax tree we can walk programmatically
+* Used to power your favourite tools eg pytest, black

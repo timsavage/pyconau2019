@@ -1,9 +1,31 @@
-name: simple-solution
+name: Why So Dangerous?
 ---
 body:
 
-### Simple to avoid
+### Why is `eval` dangerous?
 
-* Provide our own locals/globals
+<ul>
+<li class="fragment fade-in">
+Can provide our own locals and globals <code>dict</code>s
+<pre><code class="hljs" data-trim>
+eval(supplied_syntax, {}, {})
+</code></pre>
+</li>
+
+<li class="fragment fade-in">
+But Python is Meta!
+<pre><code class="hljs" data-trim>
+print(().__class__.__base__.__subclasses__())
+</code></pre>
+</li>
+</ul>
 ---
 transition: 
+---
+order: 1
+---
+notes:
+
+- Can call eval with empty locals and globals or provide our own "safe" items
+- But is that really safe?
+- prints all currently imported types, we could instantiate almost anything!

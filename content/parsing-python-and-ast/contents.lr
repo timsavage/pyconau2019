@@ -1,0 +1,13 @@
+name: Parsing Python and AST
+---
+order: 3
+---
+body:
+
+### What about whitelisting?
+
+* Is good security practice
+* Only includes things we want to have used.
+* Requires parsing of code fragment
+---
+notes: * So we need a way to whitelist things
