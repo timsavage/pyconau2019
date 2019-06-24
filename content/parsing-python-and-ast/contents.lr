@@ -7,7 +7,7 @@ body:
 ### What about whitelisting?
 
 * Is good security practice
-* Only includes things we want to have used.
-* Requires parsing of code fragment
+* Only allows actions we have approved
+* Requires parsing of code syntax
 ---
 notes: * So we need a way to whitelist things

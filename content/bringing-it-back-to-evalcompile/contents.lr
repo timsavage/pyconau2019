@@ -1,3 +1,5 @@
 name: Bringing it back to Eval/Compile
 ---
 order: 5
+---
+body: ### Build our own source tree
