@@ -13,6 +13,7 @@ notes:
   - Python for 15 years
   - Currently, work for Westpac handling sensitive data
 * Talk covers:
+  - Why would you want to accept user data
   - The dangers of Eval/Compile
   - The AST module
   - How we can use them together to safely parse data

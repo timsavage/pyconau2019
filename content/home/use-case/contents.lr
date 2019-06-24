@@ -1,0 +1,16 @@
+name: Use Case
+---
+body:
+
+### Use Case
+
+- Allow users to provide simple rules
+- Custom behaviours
+- Create your own "DSL"
+---
+notes:
+
+- Want to support custom action from a certain event.
+- Semi custom DSL
+---
+transition: convex
