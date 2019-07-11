@@ -1,0 +1,11 @@
+name: Boom
+---
+order: 4
+---
+body: 
+---
+_template: slide-boom.html
+---
+transition: convex
+---
+transition_out: concave

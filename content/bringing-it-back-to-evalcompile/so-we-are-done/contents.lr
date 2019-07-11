@@ -1,5 +1,27 @@
-name: So We Are Done?
+name: Enhancing an expression
 ---
-body: ### So we are done right?
+body:
+
+### Enhancing an expression
+
+ <pre><code class="hljs" data-trim># The expression
+left.name == right.name
+</code></pre>
+
+**DSLs**
+<pre><code class="hljs" data-trim>(left.name is not None) and (left.name == right.name)</code></pre>
+
+**Permissions**
+<pre><code class="hljs" data-trim>has_permission(left, "name") and (left.name == right.name)</code></pre>
+
 ---
 order: 2
+---
+notes:
+
+- We can validate the data and just run the script, all done!
+- But what about customising how that script runs?
+  - Define our own DSL and change behaviour
+  - Apply other checks
+---
+transition_out: none

@@ -4,7 +4,6 @@ body:
 
 ### Lets Do Something Nasty...
 <div class="fragment fade-in">
-Simple denial of service.
 <pre><code class="hljs" data-trim>
 syntax = """
 [
@@ -15,9 +14,11 @@ syntax = """
 eval(syntax, {}, {})
 </code></pre>
 </div>
+
 ---
 notes:
 
+- A simple denial of service.
 - Use a list comprehension to find the `Quitter` class (an instance of this is the exit builtin).
 - Create our own instance instance
 - Call the instance to instruct the Python interpreter to exit.

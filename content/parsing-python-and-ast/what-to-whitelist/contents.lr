@@ -1,0 +1,14 @@
+name: What to whitelist?
+---
+body:
+
+## What to Allow?
+
+* Only allow a single expression
+  <pre>assert len(module.body) == 1 and isinstance(module.body[0], ast.Expr)</pre>
+* Filter any `ast.Call` instances
+  <pre>assert call.func.id in ("any", "all")</pre>
+* Filter access to dunder attributes
+    <pre>assert not attr.attr.startswith("__")</pre>
+---
+order: 8

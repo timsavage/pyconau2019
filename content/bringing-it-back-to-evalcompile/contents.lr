@@ -2,4 +2,16 @@ name: Bringing it back to Eval/Compile
 ---
 order: 5
 ---
-body: ### Build our own source tree
+body:
+
+### Back to `eval`/`exec`/`compile`
+
+- Just validate syntax
+- Build our own execution tree
+---
+notes:
+
+- We have options
+- Can just validate using functions
+- Or we can build our own execution tree
+  - Can apply other rules and permissions

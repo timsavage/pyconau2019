@@ -2,10 +2,9 @@ name: Benifits
 ---
 body:
 
-### Benefits
+### Benefits of a tree
 
-* Much faster than executing our tree
-* Can customise behavior
+* Can customise the behaviour
 * Permissions can be applied
 ---
-order: 10
+order: 3

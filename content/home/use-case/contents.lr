@@ -2,15 +2,16 @@ name: Use Case
 ---
 body:
 
-### Use Case
+### Use Cases
 
-- Allow users to provide simple rules
-- Custom behaviours
+- Provide simple rules/statements
+- Customise behaviour
 - Create your own "DSL"
 ---
 notes:
 
 - Want to support custom action from a certain event.
-- Semi custom DSL
+- Semi-custom DSL
+- Talk about databank notifications
 ---
 transition: convex

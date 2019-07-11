@@ -1,5 +1,14 @@
 name: Generating code
 ---
-body: ### Generating code
+body:
+
+### Generate code
+
+Why? Executing a tree is slow
+- Walking the tree
+- Many function calls
+- A lot of object initialisation
 ---
-order: 4
+order: 6
+---
+notes: 

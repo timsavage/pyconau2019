@@ -2,11 +2,11 @@ name: Dangers of Eval/Compile
 ---
 body:
 
-### The Dangers of `eval` & `compile`
+### The Dangers of `eval` & `exec`
 
 <ul>
-<li class="fragment fade-in-them-semi-out">Standard advice is to avoid using <code>eval</code></li>
-<li class="fragment fade-in-them-semi-out">However <code>eval</code> does have it's uses eg <code>namedtuple</code></li>
+<li class="fragment fade-in-them-semi-out">Standard advice is to avoid <code>eval</code></li>
+<li class="fragment fade-in-them-semi-out">However <code>eval</code> does have it's uses</li>
 </ul>
 ---
 order: 2

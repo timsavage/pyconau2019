@@ -4,8 +4,14 @@ body:
 
 ### Use the AST module
 
-* Is built into the standard library
-* Creates a syntax tree we can walk programmatically
-* Used to power your favourite tools eg pytest, black
+* Is part of the standard library
+* Creates a syntax tree
+* Used by your favourite tools (*mypy*, *black*, *bandit*)
 ---
 order: 1
+---
+notes:
+
+- Is built into the python standard library
+- Produces a syntax tree that's easily parsable
+- Handles all valid python syntax

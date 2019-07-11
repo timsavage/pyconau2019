@@ -4,14 +4,17 @@ name: Home
 ---
 body:
 
-## Safely eval Python Syntax with the AST module
+## Safely eval Python Syntax 
+#### with the AST module
 ----
 ---
 notes:
 
+* The standard advice is to never use eval, but, I'm going to tell you how.
 * Experience
-  - Python for 15 years
-  - Currently, work for Westpac handling sensitive data
+  - Software engineering ~20 years
+  - Python for 15+ years
+  - Currently, work for Westpac
 * Talk covers:
   - Why would you want to accept user data
   - The dangers of Eval/Compile

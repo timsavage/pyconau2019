@@ -6,8 +6,12 @@ body:
 
 ### What about whitelisting?
 
-* Is good security practice
-* Only allows actions we have approved
-* Requires parsing of code syntax
+* Is good security practice 🗸
+* Prevents un-expected actions 🗸
+
+*Requires parsing of code syntax*
 ---
-notes: * So we need a way to whitelist things
+notes:
+
+* Is good security practice, and well used in firewalls and networking
+
