@@ -6,7 +6,7 @@ body:
 
 <ul>
 <li class="fragment fade-in-them-semi-out">Standard advice is to avoid <code>eval</code></li>
-<li class="fragment fade-in-them-semi-out">However <code>eval</code> does have it's uses</li>
+<li class="fragment fade-in-them-semi-out"><code>eval</code>has valid uses</li>
 </ul>
 ---
 order: 2
@@ -17,5 +17,5 @@ transition_out: zoom
 ---
 notes:
 
-* Advice is to not use `eval`
+* Common advice is to not use `eval`
 * Appears in standard library `namedtuple` or do a file in files on the Standard library

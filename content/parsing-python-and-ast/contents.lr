@@ -4,14 +4,18 @@ order: 3
 ---
 body:
 
-### What about whitelisting?
+### Making it happen.
 
-* Is good security practice 🗸
-* Prevents un-expected actions 🗸
+- Whitelisting
+  - Is good security practice
+  - Prevents un-expected actions
 
-*Requires parsing of code syntax*
+*Code needs to be parsed*
 ---
 notes:
 
+* So we have a good use case
+* we are aware of the dangers
+* how do we go about doing this.
 * Is good security practice, and well used in firewalls and networking
 

@@ -26,6 +26,5 @@ order: 1
 ---
 notes:
 
-- Can call eval with empty locals and globals or provide our own "safe" items
-- But is that really safe?
+- Can call eval with empty locals and globals or provide our own "safe" methods/variables
 - prints all currently imported types, we could instantiate almost anything!

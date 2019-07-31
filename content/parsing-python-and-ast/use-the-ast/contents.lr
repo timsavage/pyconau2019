@@ -2,9 +2,9 @@ name: Use the AST
 ---
 body:
 
-### Use the AST module
+### Use the AST
 
-* Is part of the standard library
+* In the Standard Library
 * Creates a syntax tree
 * Used by your favourite tools (*mypy*, *black*, *bandit*)
 ---

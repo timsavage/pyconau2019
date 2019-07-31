@@ -4,14 +4,18 @@ body:
 
 ### Use Cases
 
-- Provide simple rules/statements
-- Customise behaviour
+**Validate Syntax**
+- Provide a query syntax
+- Matching of system events
+
+**Extend Syntax**
 - Create your own "DSL"
 ---
 notes:
 
-- Want to support custom action from a certain event.
-- Semi-custom DSL
-- Talk about databank notifications
+- First lets talk use-cases
+- Query syntax ala JQL
+- Matching events, related to databank Notificationst. - Long turn around for deployments
+- Talk about databank record matching (apply security, customise behaviour)
 ---
 transition: convex

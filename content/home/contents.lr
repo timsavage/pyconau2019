@@ -5,21 +5,21 @@ name: Home
 body:
 
 ## Safely eval Python Syntax 
-#### with the AST module
+#### using the AST module
 ----
 ---
 notes:
 
-* The standard advice is to never use eval, but, I'm going to tell you how.
+* The standard advice with any scripting language is to never use eval, 
+   in this talk I'm going to talk about why and how we can do it securely.
 * Experience
   - Software engineering ~20 years
   - Python for 15+ years
-  - Currently, work for Westpac
+  - Currently, work for Westpac (although not representing them)
 * Talk covers:
-  - Why would you want to accept user data
+  - Why would you want to accept user data, some use cases
   - The dangers of Eval/Compile
   - The AST module
-  - How we can use them together to safely parse data
-
+  - How to parse syntax with AST and process
 ---
 order: 1
