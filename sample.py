@@ -9,29 +9,32 @@ MY_OBJ = {
 
 
 def verify_expression(st):
+    def _validate(node):
+        if isinstance(node, ast.Compare):
+            _validate(node.left)
+            [_validate(c) for c in node.comparators]
+
+        elif isinstance(node, (ast.Num, ast.Str, ast.Bytes, ast.List, ast.Tuple, ast.NameConstant)):
+            pass  # Allow all constants
+        
+        elif isinstance(node, ast.Name):
+            if node.id not in MY_OBJ:
+                raise NameError(f"Unknown variable {node.id}")
+        
+        else:
+            raise RuntimeError(f"Unsupported node {node!r}")
+    
     # Check for a comparison
     if not isinstance(st.body, ast.Compare):
         raise RuntimeError(f"Expected comparison got {type(expr)}")
 
-    def _validate(node):
-        # Allow constant values
-        if isinstance(node, ast.Compare):
-            _validate(node.left)
-            [_validate(c) for c in node.comparators]
-        elif isinstance(node, (ast.Num, ast.Str, ast.Bytes, ast.List, ast.Tuple, ast.NameConstant)):
-            pass  # Allow all constants
-        elif isinstance(node, ast.Name):
-            if node.id not in MY_OBJ:
-                raise RuntimeError(f"Unknown variable {node.id}")
-        else:
-            raise RuntimeError(f"Unsupported node {node!r}")
-
+    _validate(st.body)
 
 
 print(f"Object is: {MY_OBJ}")
 while True:
     try:
-        expr = input("Enter an expression to evaluate obj: ")
+        expr = input("\nEnter an expression to evaluate obj: ")
     except KeyboardInterrupt:
         print()
         exit()
