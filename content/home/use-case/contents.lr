@@ -4,12 +4,9 @@ body:
 
 ### Use Cases
 
-**Validate Syntax**
+- Expression matching events
 - Provide a query syntax
-- Matching of system events
-
-**Extend Syntax**
-- Create your own "DSL"
+  - Create your own "DSL"
 ---
 notes:
 

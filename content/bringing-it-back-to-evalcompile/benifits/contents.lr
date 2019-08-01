@@ -2,9 +2,16 @@ name: Benifits
 ---
 body:
 
-### Benefits of a tree
+### Useful things we can do
 
-* Can customise the behaviour
-* Permissions can be applied
+* Define our own DSL?
+* Tweak behaviour
+* Apply fine-grained permissions
+
 ---
-order: 3
+order: 1
+---
+notes:
+
+Customise the behaviour of an operator?
+

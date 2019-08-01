@@ -7,7 +7,10 @@ body:
 ### Back to `eval`
 
 - Just validate syntax
-- Build our own execution tree
+
+**What else can you do?**
+- Edit the AST
+- Generate our own code
 ---
 notes:
 

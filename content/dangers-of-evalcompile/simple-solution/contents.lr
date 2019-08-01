@@ -15,7 +15,7 @@ eval(supplied_syntax, {}, {})
 <li class="fragment fade-in">
 But Python is Meta!
 <pre><code class="hljs" data-trim>
-print(().__class__.__base__.__subclasses__())
+().__class__.__base__.__subclasses__()
 </code></pre>
 </li>
 </ul>
