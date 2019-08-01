@@ -5,7 +5,7 @@
  data-transition="{{ slide.transition }}"
 {% elif slide.transition_out %}
  data-transition="{{ slide.transition_out }}-out"
-{% endif %}{% endmacro %}
+{% endif %}{%- if slide.extra_data_attrs %} {{ slide.extra_data_attrs|safe }}{% endif %}{% endmacro %}
 {% macro render_slide(slide) %}
     <section{{ render_transitions(slide) }}>
         {{ slide.body }}

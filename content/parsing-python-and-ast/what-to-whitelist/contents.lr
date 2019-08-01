@@ -4,11 +4,15 @@ body:
 
 ## What to Allow?
 
-* Only allow a single expression
-  <pre>assert len(module.body) == 1 and isinstance(module.body[0], ast.Expr)</pre>
-* Filter any `ast.Call` instances
-  <pre>assert call.func.id in ("any", "all")</pre>
-* Filter access to dunder attributes
-    <pre>assert not attr.attr.startswith("__")</pre>
+Depends on your application!
+
+* Only allow a single expression, use *eval* mode
+  <pre><code>ast.parse(expression, mode="eval")</code></pre>
+* Filter any `ast.Call` instances eg
+  <pre><code>call.func.id in ("any", "all")</code></pre>
+* Not allow dunders
+    <pre><code>not attr.attr.startswith("__")</code></pre>
 ---
 order: 8
+---
+notes: 

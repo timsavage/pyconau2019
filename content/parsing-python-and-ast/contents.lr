@@ -4,18 +4,15 @@ order: 3
 ---
 body:
 
-### Making it happen.
+### Use the AST
 
-- Whitelisting
-  - Is good security practice
-  - Prevents un-expected actions
-
-*Code needs to be parsed*
+- In the Standard Library
+- Creates a syntax tree
+- Used by your favourite tools (*pytest*, *black*, *bandit*)
 ---
 notes:
 
-* So we have a good use case
-* we are aware of the dangers
-* how do we go about doing this.
-* Is good security practice, and well used in firewalls and networking
+- Is built into the python standard library
+- Produces a syntax tree that's easily parsable, editable and executable
+- Handles all valid python syntax
 

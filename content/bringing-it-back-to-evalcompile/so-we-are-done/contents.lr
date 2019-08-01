@@ -6,10 +6,9 @@ body:
 
  <pre><code class="hljs" data-trim># The expression
 left.name == right.name
-</code></pre>
 
-**DSLs**
-<pre><code class="hljs" data-trim>(left.name is not None) and (left.name == right.name)</code></pre>
+# With an extra check
+(left.name is not None) and (left.name == right.name)</code></pre>
 
 **Permissions**
 <pre><code class="hljs" data-trim>has_permission(left, "name") and (left.name == right.name)</code></pre>

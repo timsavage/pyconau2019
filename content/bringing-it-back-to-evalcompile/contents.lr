@@ -4,7 +4,7 @@ order: 5
 ---
 body:
 
-### Back to `eval`/`exec`/`compile`
+### Back to `eval`
 
 - Just validate syntax
 - Build our own execution tree
@@ -15,3 +15,5 @@ notes:
 - Can just validate using functions
 - Or we can build our own execution tree
   - Can apply other rules and permissions
+---
+extra_data_attrs: data-background-image="/bringing-it-back-to-evalcompile/ealvpinu8aamqvv.jpeg"
