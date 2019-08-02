@@ -1,0 +1,29 @@
+
+
+
+    <section
+ data-transition="none-out"
+>
+        <h3>Enhancing an expression</h3>
+<pre><code class="hljs" data-trim># The expression
+left.name == right.name
+
+# With an extra check
+(left.name is not None) and (left.name == right.name)</code></pre><p><strong>Permissions</strong></p>
+<pre><code class="hljs" data-trim>has_permission(left, "name") and (left.name == right.name)</code></pre>
+        
+            <aside class="notes">
+                <ul>
+<li>We can validate the data and just run the script, all done!</li>
+<li>But what about customising how that script runs?<ul>
+<li>Define our own DSL and change behaviour</li>
+<li>Apply other checks</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+

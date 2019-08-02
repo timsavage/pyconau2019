@@ -1,0 +1,133 @@
+
+
+<section>
+	
+    <section
+ data-transition="zoom-out"
+>
+        <h3>The Dangers of <code>eval</code> &amp; <code>exec</code></h3>
+<ul>
+<li class="fragment fade-in-them-semi-out">Standard advice is to avoid <code>eval</code></li>
+<li class="fragment fade-in-them-semi-out"><code>eval</code>has valid uses</li>
+</ul>
+        
+            <aside class="notes">
+                <ul>
+<li>Common advice is to not use <code>eval</code></li>
+<li>Appears in standard library <code>namedtuple</code> or do a file in files on the Standard library</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>Why is <code>eval</code> dangerous?</h3>
+<ul>
+<li class="fragment fade-in">
+Can provide our own locals and globals <code>dict</code>s
+<pre><code class="hljs" data-trim>
+eval(supplied_syntax, {}, {})
+</code></pre>
+</li>
+
+<li class="fragment fade-in">
+But Python is Meta!
+<pre><code class="hljs" data-trim>
+().__class__.__base__.__subclasses__()
+</code></pre>
+</li>
+</ul>
+        
+            <aside class="notes">
+                <ul>
+<li>Can call eval with empty locals and globals or provide our own "safe" methods/variables</li>
+<li>prints all currently imported types, we could instantiate almost anything!</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>Lets Do Something Nasty...</h3>
+<div class="fragment fade-in">
+<pre><code class="hljs" data-trim>
+syntax = """
+[
+    s for s in ().__class__.__base__.__subclasses__() 
+    if s.__name__ == 'Quitter'
+][0]('', 0)()
+"""
+eval(syntax, {}, {})
+</code></pre>
+</div>
+        
+            <aside class="notes">
+                <ul>
+<li>A simple denial of service.</li>
+<li>Use a list comprehension to find the <code>Quitter</code> class (an instance of this is the exit builtin).</li>
+<li>Create our own instance instance</li>
+<li>Call the instance to instruct the Python interpreter to exit.</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section
+ data-transition="convex-in concave-out"
+ data-background-image="/dangers-of-evalcompile/boom/nuke.jpg">
+        
+        
+            <aside class="notes">
+                <p>DOS (denial of service)</p>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>More info on <code>eval</code></h3>
+<p>See Ned Batchelders excellent talk on the topic.</p>
+<p><a href="http://bit.ly/2ZKGWcl">http://bit.ly/2ZKGWcl</a> 
+<small>https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html</small></p>
+
+        
+            <aside class="notes">
+                <ul>
+<li>Only cover at a high level, avoid rehashing and refer to neds talk</li>
+<li>See Neds excellent talk, he goes into much greater detail</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+

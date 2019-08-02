@@ -1,0 +1,25 @@
+
+
+
+    <section>
+        <h3>What does a Syntax tree look like</h3>
+<pre><code class="hljs" data-trim>
+>>> ast.parse("obj.x == 123", mode="eval")
+</code></pre><pre><code class="hljs" data-trim>
+Expression(
+    body=Compare(
+        left=Attribute(
+            value=Name(id='obj', ctx=Load()), 
+            attr='x', 
+            ctx=Load()
+        ), 
+        ops=[Eq()], 
+        comparators=[Num(n=123)]
+    )
+)
+</code></pre><p><small><code>ppast</code> thanks to greentreesnakes.readthedocs.io</small></p>
+
+        
+    </section>
+
+

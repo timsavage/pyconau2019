@@ -1,0 +1,16 @@
+
+
+
+    <section>
+        <h2>What to Allow?</h2>
+<p>Depends on your application!</p>
+<ul>
+<li>Only allow a single expression, use <em>eval</em> mode<pre><code>ast.parse(expression, mode="eval")</code></pre></li>
+<li>Filter any <code>ast.Call</code> instances eg<pre><code>call.func.id in ("any", "all")</code></pre></li>
+<li>Not allow dunders<pre><code>not attr.attr.startswith("__")</code></pre></li>
+</ul>
+
+        
+    </section>
+
+

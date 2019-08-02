@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>PyConAU 2019</title>
+
+    <link rel="stylesheet" href="./static/css/reset.css?h=617d77c2">
+    <link rel="stylesheet" href="./static/css/reveal.css?h=99f2b7aa">
+    <link rel="stylesheet" href="./static/css/theme/black.css?h=d23f5cad">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="./static/lib/css/monokai.css?h=99ab7678">
+
+    <style>
+        small { vertical-align: middle !important; }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? './static/css/print/pdf.css?h=a707317a' : './static/css/print/paper.css?h=76b28876';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+<div class="slides">
+  
+
+<section>
+	
+    <section>
+        <h2>Safely eval Python Syntax</h2>
+<h4>using the AST module</h4>
+<hr>
+
+        
+            <aside class="notes">
+                <ul>
+<li>The standard advice with any scripting language is to never use eval, 
+ in this talk I'm going to talk about why and how we can do it securely.</li>
+<li>Experience<ul>
+<li>Software engineering ~20 years</li>
+<li>Python for 15+ years</li>
+<li>Currently, work for Westpac (although not representing them)</li>
+</ul>
+</li>
+<li>Talk covers:<ul>
+<li>Why would you want to accept user data, some use cases</li>
+<li>The dangers of Eval/Compile</li>
+<li>The AST module</li>
+<li>How to parse syntax with AST and process</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section
+ data-transition="convex"
+>
+        <h3>Use Cases</h3>
+<ul>
+<li>Expression matching events</li>
+<li>Provide a query syntax<ul>
+<li>Create your own "DSL"</li>
+</ul>
+</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>First lets talk use-cases</li>
+<li>Query syntax ala JQL</li>
+<li>Matching events, related to databank Notificationst. - Long turn around for deployments</li>
+<li>Talk about databank record matching (apply security, customise behaviour)</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+
+
+  
+
+<section>
+	
+    <section
+ data-transition="zoom-out"
+>
+        <h3>The Dangers of <code>eval</code> &amp; <code>exec</code></h3>
+<ul>
+<li class="fragment fade-in-them-semi-out">Standard advice is to avoid <code>eval</code></li>
+<li class="fragment fade-in-them-semi-out"><code>eval</code>has valid uses</li>
+</ul>
+        
+            <aside class="notes">
+                <ul>
+<li>Common advice is to not use <code>eval</code></li>
+<li>Appears in standard library <code>namedtuple</code> or do a file in files on the Standard library</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>Why is <code>eval</code> dangerous?</h3>
+<ul>
+<li class="fragment fade-in">
+Can provide our own locals and globals <code>dict</code>s
+<pre><code class="hljs" data-trim>
+eval(supplied_syntax, {}, {})
+</code></pre>
+</li>
+
+<li class="fragment fade-in">
+But Python is Meta!
+<pre><code class="hljs" data-trim>
+().__class__.__base__.__subclasses__()
+</code></pre>
+</li>
+</ul>
+        
+            <aside class="notes">
+                <ul>
+<li>Can call eval with empty locals and globals or provide our own "safe" methods/variables</li>
+<li>prints all currently imported types, we could instantiate almost anything!</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>Lets Do Something Nasty...</h3>
+<div class="fragment fade-in">
+<pre><code class="hljs" data-trim>
+syntax = """
+[
+    s for s in ().__class__.__base__.__subclasses__() 
+    if s.__name__ == 'Quitter'
+][0]('', 0)()
+"""
+eval(syntax, {}, {})
+</code></pre>
+</div>
+        
+            <aside class="notes">
+                <ul>
+<li>A simple denial of service.</li>
+<li>Use a list comprehension to find the <code>Quitter</code> class (an instance of this is the exit builtin).</li>
+<li>Create our own instance instance</li>
+<li>Call the instance to instruct the Python interpreter to exit.</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section
+ data-transition="convex-in concave-out"
+ data-background-image="/dangers-of-evalcompile/boom/nuke.jpg">
+        
+        
+            <aside class="notes">
+                <p>DOS (denial of service)</p>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>More info on <code>eval</code></h3>
+<p>See Ned Batchelders excellent talk on the topic.</p>
+<p><a href="http://bit.ly/2ZKGWcl">http://bit.ly/2ZKGWcl</a> 
+<small>https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html</small></p>
+
+        
+            <aside class="notes">
+                <ul>
+<li>Only cover at a high level, avoid rehashing and refer to neds talk</li>
+<li>See Neds excellent talk, he goes into much greater detail</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+
+
+  
+
+<section>
+	
+    <section>
+        <h3>Use the AST</h3>
+<ul>
+<li>In the Standard Library</li>
+<li>Creates a syntax tree</li>
+<li>Used by your favourite tools (<em>pytest</em>, <em>black</em>, <em>bandit</em>)</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>Is built into the python standard library</li>
+<li>Produces a syntax tree that's easily parsable, editable and executable</li>
+<li>Handles all valid python syntax</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>What does a Syntax tree look like</h3>
+<pre><code class="hljs" data-trim>
+>>> ast.parse("obj.x == 123", mode="eval")
+</code></pre><pre><code class="hljs" data-trim>
+Expression(
+    body=Compare(
+        left=Attribute(
+            value=Name(id='obj', ctx=Load()), 
+            attr='x', 
+            ctx=Load()
+        ), 
+        ops=[Eq()], 
+        comparators=[Num(n=123)]
+    )
+)
+</code></pre><p><small><code>ppast</code> thanks to greentreesnakes.readthedocs.io</small></p>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>Nodes</h3>
+<ul>
+<li>Literals <small>eg <code>"foo", 123, True, None</code></small></li>
+<li>Variables</li>
+<li>Expressions <small>eg Operators, comparison, call , subscripting, comprehensions</small></li>
+<li>Statements <small>assignment, <code>print</code>, <code>raise</code>, <code>del</code>, <code>import</code>...</small></li>
+<li>Control flow <small><code>if/else</code>, <code>try/except</code>, <code>for</code>, <code>while</code>, <code>with</code>...</small></li>
+<li>Function and Class Def, Async</li>
+</ul>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h2>What to Allow?</h2>
+<p>Depends on your application!</p>
+<ul>
+<li>Only allow a single expression, use <em>eval</em> mode<pre><code>ast.parse(expression, mode="eval")</code></pre></li>
+<li>Filter any <code>ast.Call</code> instances eg<pre><code>call.func.id in ("any", "all")</code></pre></li>
+<li>Not allow dunders<pre><code>not attr.attr.startswith("__")</code></pre></li>
+</ul>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <p>Code example!</p>
+
+        
+    </section>
+
+
+		
+    
+</section>
+
+
+  
+
+<section>
+	
+    <section data-background-image="/bringing-it-back-to-evalcompile/ealvpinu8aamqvv.jpeg">
+        <h3>Back to <code>eval</code></h3>
+<ul>
+<li>Just validate syntax</li>
+</ul>
+<p><strong>What else can you do?</strong></p>
+<ul>
+<li>Edit the AST</li>
+<li>Generate our own code</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>We have options</li>
+<li>Can just validate using functions</li>
+<li>Or we can build our own execution tree<ul>
+<li>Can apply other rules and permissions</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>Useful things we can do</h3>
+<ul>
+<li>Define our own DSL?</li>
+<li>Tweak behaviour</li>
+<li>Apply fine-grained permissions</li>
+</ul>
+
+        
+            <aside class="notes">
+                <p>Customise the behaviour of an operator?</p>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section
+ data-transition="none-out"
+>
+        <h3>Enhancing an expression</h3>
+<pre><code class="hljs" data-trim># The expression
+left.name == right.name
+
+# With an extra check
+(left.name is not None) and (left.name == right.name)</code></pre><p><strong>Permissions</strong></p>
+<pre><code class="hljs" data-trim>has_permission(left, "name") and (left.name == right.name)</code></pre>
+        
+            <aside class="notes">
+                <ul>
+<li>We can validate the data and just run the script, all done!</li>
+<li>But what about customising how that script runs?<ul>
+<li>Define our own DSL and change behaviour</li>
+<li>Apply other checks</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+
+
+  
+
+
+    <section>
+        <h2>Question/Comments</h2>
+<ul>
+<li>Email: tim@savage.company</li>
+<li>Twitter: @savage_drummer</li>
+<li>Github: github.com/timsavage</li>
+<li>PyPI: <em>odin</em> or <em>pyapp</em></li>
+</ul>
+
+        
+    </section>
+
+
+
+</div>
+</div>
+    <script src="./static/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: './static/plugin/markdown/marked.js' },
+          { src: './static/plugin/markdown/markdown.js' },
+          { src: './static/plugin/notes/notes.js', async: true },
+          { src: './static/plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

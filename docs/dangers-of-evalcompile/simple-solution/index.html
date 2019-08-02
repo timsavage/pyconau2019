@@ -1,0 +1,32 @@
+
+
+
+    <section>
+        <h3>Why is <code>eval</code> dangerous?</h3>
+<ul>
+<li class="fragment fade-in">
+Can provide our own locals and globals <code>dict</code>s
+<pre><code class="hljs" data-trim>
+eval(supplied_syntax, {}, {})
+</code></pre>
+</li>
+
+<li class="fragment fade-in">
+But Python is Meta!
+<pre><code class="hljs" data-trim>
+().__class__.__base__.__subclasses__()
+</code></pre>
+</li>
+</ul>
+        
+            <aside class="notes">
+                <ul>
+<li>Can call eval with empty locals and globals or provide our own "safe" methods/variables</li>
+<li>prints all currently imported types, we could instantiate almost anything!</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+

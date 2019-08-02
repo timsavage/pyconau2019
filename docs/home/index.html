@@ -1,0 +1,67 @@
+
+
+<section>
+	
+    <section>
+        <h2>Safely eval Python Syntax</h2>
+<h4>using the AST module</h4>
+<hr>
+
+        
+            <aside class="notes">
+                <ul>
+<li>The standard advice with any scripting language is to never use eval, 
+ in this talk I'm going to talk about why and how we can do it securely.</li>
+<li>Experience<ul>
+<li>Software engineering ~20 years</li>
+<li>Python for 15+ years</li>
+<li>Currently, work for Westpac (although not representing them)</li>
+</ul>
+</li>
+<li>Talk covers:<ul>
+<li>Why would you want to accept user data, some use cases</li>
+<li>The dangers of Eval/Compile</li>
+<li>The AST module</li>
+<li>How to parse syntax with AST and process</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section
+ data-transition="convex"
+>
+        <h3>Use Cases</h3>
+<ul>
+<li>Expression matching events</li>
+<li>Provide a query syntax<ul>
+<li>Create your own "DSL"</li>
+</ul>
+</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>First lets talk use-cases</li>
+<li>Query syntax ala JQL</li>
+<li>Matching events, related to databank Notificationst. - Long turn around for deployments</li>
+<li>Talk about databank record matching (apply security, customise behaviour)</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+

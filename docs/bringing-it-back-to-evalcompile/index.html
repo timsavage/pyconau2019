@@ -1,0 +1,86 @@
+
+
+<section>
+	
+    <section data-background-image="/bringing-it-back-to-evalcompile/ealvpinu8aamqvv.jpeg">
+        <h3>Back to <code>eval</code></h3>
+<ul>
+<li>Just validate syntax</li>
+</ul>
+<p><strong>What else can you do?</strong></p>
+<ul>
+<li>Edit the AST</li>
+<li>Generate our own code</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>We have options</li>
+<li>Can just validate using functions</li>
+<li>Or we can build our own execution tree<ul>
+<li>Can apply other rules and permissions</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>Useful things we can do</h3>
+<ul>
+<li>Define our own DSL?</li>
+<li>Tweak behaviour</li>
+<li>Apply fine-grained permissions</li>
+</ul>
+
+        
+            <aside class="notes">
+                <p>Customise the behaviour of an operator?</p>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section
+ data-transition="none-out"
+>
+        <h3>Enhancing an expression</h3>
+<pre><code class="hljs" data-trim># The expression
+left.name == right.name
+
+# With an extra check
+(left.name is not None) and (left.name == right.name)</code></pre><p><strong>Permissions</strong></p>
+<pre><code class="hljs" data-trim>has_permission(left, "name") and (left.name == right.name)</code></pre>
+        
+            <aside class="notes">
+                <ul>
+<li>We can validate the data and just run the script, all done!</li>
+<li>But what about customising how that script runs?<ul>
+<li>Define our own DSL and change behaviour</li>
+<li>Apply other checks</li>
+</ul>
+</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+
+		
+    
+</section>
+

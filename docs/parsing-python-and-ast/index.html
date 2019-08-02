@@ -1,0 +1,104 @@
+
+
+<section>
+	
+    <section>
+        <h3>Use the AST</h3>
+<ul>
+<li>In the Standard Library</li>
+<li>Creates a syntax tree</li>
+<li>Used by your favourite tools (<em>pytest</em>, <em>black</em>, <em>bandit</em>)</li>
+</ul>
+
+        
+            <aside class="notes">
+                <ul>
+<li>Is built into the python standard library</li>
+<li>Produces a syntax tree that's easily parsable, editable and executable</li>
+<li>Handles all valid python syntax</li>
+</ul>
+
+            </aside>
+        
+    </section>
+
+    
+		
+
+
+    <section>
+        <h3>What does a Syntax tree look like</h3>
+<pre><code class="hljs" data-trim>
+>>> ast.parse("obj.x == 123", mode="eval")
+</code></pre><pre><code class="hljs" data-trim>
+Expression(
+    body=Compare(
+        left=Attribute(
+            value=Name(id='obj', ctx=Load()), 
+            attr='x', 
+            ctx=Load()
+        ), 
+        ops=[Eq()], 
+        comparators=[Num(n=123)]
+    )
+)
+</code></pre><p><small><code>ppast</code> thanks to greentreesnakes.readthedocs.io</small></p>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h3>Nodes</h3>
+<ul>
+<li>Literals <small>eg <code>"foo", 123, True, None</code></small></li>
+<li>Variables</li>
+<li>Expressions <small>eg Operators, comparison, call , subscripting, comprehensions</small></li>
+<li>Statements <small>assignment, <code>print</code>, <code>raise</code>, <code>del</code>, <code>import</code>...</small></li>
+<li>Control flow <small><code>if/else</code>, <code>try/except</code>, <code>for</code>, <code>while</code>, <code>with</code>...</small></li>
+<li>Function and Class Def, Async</li>
+</ul>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <h2>What to Allow?</h2>
+<p>Depends on your application!</p>
+<ul>
+<li>Only allow a single expression, use <em>eval</em> mode<pre><code>ast.parse(expression, mode="eval")</code></pre></li>
+<li>Filter any <code>ast.Call</code> instances eg<pre><code>call.func.id in ("any", "all")</code></pre></li>
+<li>Not allow dunders<pre><code>not attr.attr.startswith("__")</code></pre></li>
+</ul>
+
+        
+    </section>
+
+
+		
+    
+		
+
+
+    <section>
+        <p>Code example!</p>
+
+        
+    </section>
+
+
+		
+    
+</section>
+
