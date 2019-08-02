@@ -7,7 +7,7 @@
  data-transition="{{ slide.transition_out }}-out"
 {% endif %}{% endmacro %}
 {% macro render_slide(slide) %}
-    <section{{ render_transitions(slide) }} data-background-image="/dangers-of-evalcompile/boom/nuke.jpg">
+    <section{{ render_transitions(slide) }} data-background-image="./dangers-of-evalcompile/boom/nuke.jpg">
         {{ slide.body }}
         {% if slide.notes %}
             <aside class="notes">
