@@ -1,3 +1,10 @@
+#
+# WARNING! 
+#
+# This was simplified and significantly shortened to allow for presentation during my talk 
+# and should never be deployed in production.
+#
+
 import ast
 import readline
 
